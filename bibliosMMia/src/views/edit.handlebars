@@ -1,0 +1,17 @@
+<main>
+  <div class="container">
+    <h2>Adicione um novo livro:</h2>
+    <form action="/books/update/{{this.id}}" method="POST">
+          <p>Título:</p>
+          <input type="text" name="title" value="{{ this.title }}">
+          <p>Autor:</p>
+          <input type="text" name="author" value="{{ this.author }}">
+          <p>Editora do livro:</p>
+          <input type="text" name="editor_book" value="{{ this.editor_book }}">
+          <p>Categoria:</p>
+          <input type="text" name="category" value="{{ this.category }}">
+      
+      <button type="submit">EDITAR</button>
+    </form>
+  </div>
+</main>
