@@ -1,36 +1,36 @@
 const Book = require('../models/Book');
 
 module.exports = {
-  async createBook(req, res) {
-    const { title, author, editor_book, category } = req.body;
+  async createBook(request, response) {
+    const { title, author, editor_book, category } = request.body;
 
     const book = await Book.create({ title,author, editor_book, category });
 
-    res.redirect('/');
+    response.redirect('/');
   },
 
-  async findBooks(req, res) {
+  async findBooks(request, response) {
     const books = await Book.findAll({ raw: true });
 
-    return res.json(books);
+    return response.json(books);
   },
 
-  async findBook(req, res) {
-    const { id } = req.params;
+  async findBook(request, response) {
+    const { id } = request.params;
     const books = await Book.findByPk(id);
 
-    return res.json(books);
+    return response.json(books);
   },
 
-  async updateBook(req, res) {
-    const { id } = req.params;
-    const { title, author, editor_book, category } = req.body;
+  async updateBook(request, response) {
+    const { id } = request.params;
+    const { title, author, editor_book, category } = request.body;
 
     const book = await Book.update(
       { title, author, editor_book, category },
       { where: { id: id } }
       );
-      return res.redirect(`/books/update/${id}`); 
+      return response.redirect(`/books/update/${id}`); 
     },
 
   async deleteBook(request, response) {
