@@ -3,13 +3,13 @@ const UsersController = require('../controllers/UsersController');
 
 const router = express.Router();
 
-router.get('/', UsersController.pageHome);
-router.get('/login', UsersController.pageLogin);
-router.get('/allBooks', UsersController.pageAllBooks);
-router.get('/registerBook', UsersController.pageRegisterBook);
-router.post('/users', UsersController.createUser);
+router.post('/users', UsersController.Usercreate);
+router.get('/login', UsersController.loginRender);
 router.get('/users/:id', UsersController.findUser);
+router.delete('/users/:id', UsersController.userDelete);
+router.get('/', UsersController.homeRender);
+router.get('/registerBook', UsersController.pageRegisterBook);
+router.get('/allBooks', UsersController.allBooksrender);
 router.put('/users/:id', UsersController.update);
-router.delete('/users/:id', UsersController.deleteUser);
 
 module.exports = router;
