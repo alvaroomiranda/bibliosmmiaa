@@ -22,7 +22,7 @@ module.exports = {
   loginRender(request, response) {
     response.render('login');
   },
-  async AllBooksrender(request, response) {
+  async allBooksrender(request, response) {
     const books = await Book.findAll({ raw: true });
 
     console.log(books);
